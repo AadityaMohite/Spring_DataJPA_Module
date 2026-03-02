@@ -150,53 +150,53 @@ public class SpringBoot2Application implements CommandLineRunner {
 
 				);
 		
-//		employeeRepository.saveAll(employees);
-//		
-//		Sort sort = Sort.by("name");
-//	employeeRepository.findAll(sort).forEach(x->System.out.println(x));;
-//		
-//		Sort sort2 = Sort.by("salary");
-//	List<Employee> employees2 =	employeeRepository.findAll(sort);
-//	 
-//	   for (Employee employee : employees2) {
-//	System.out.println(employee);
-//	}
-//		
-//		
-//	
-//		System.out.println("Run method is calling");
-//		
-//	
+		employeeRepository.saveAll(employees);
+		
+		Sort sort = Sort.by("name");
+	employeeRepository.findAll(sort).forEach(x->System.out.println(x));;
+		
+		Sort sort2 = Sort.by("salary");
+	List<Employee> employees2 =	employeeRepository.findAll(sort);
+	 
+	   for (Employee employee : employees2) {
+	System.out.println(employee);
+	}
+		
+		
+	
+		System.out.println("Run method is calling");
+		
+	
 	
 		//Pagination
-//	PageRequest request =	PageRequest.of(0, 10);
-//	
-//	
-//	Page<Employee> page = employeeRepository.findAll(request);
-//		
-//	List<Employee> employees2 = page.getContent();
-//	
-//	employees2.forEach(i->System.out.println(i));
+	PageRequest request =	PageRequest.of(0, 10);
+	
+	
+	Page<Employee> page = employeeRepository.findAll(request);
+		
+	List<Employee> employees3 = page.getContent();
+	
+	employees3.forEach(i->System.out.println(i));
 		
 		
 		// Filteration
 		
-//		Employee employee = new Employee();
-////		employee.setAddress("Pune");
-////		employee.setAddress("Banglore");
-////		employee.setAddress("Chennai");
-////		employee.setName("Raj");
-////		employee.setName("Payal");
-////         employee.setSalary(45000.00);
-//	Example<Employee> emExample =	Example.of(employee);
-//	
-//	List<Employee> employees2 = employeeRepository.findAll(emExample);
-//	
-//	employees2.forEach(i->System.out.println(i));
+		Employee employee = new Employee();
+		employee.setAddress("Pune");
+		employee.setAddress("Banglore");
+		employee.setAddress("Chennai");
+		employee.setName("Raj");
+		employee.setName("Payal");
+         employee.setSalary(45000.00);
+	Example<Employee> emExample =	Example.of(employee);
+	
+	List<Employee> employees4 = employeeRepository.findAll(emExample);
+	
+	employees4.forEach(i->System.out.println(i));
 //		
-//		List<Employee> bynamEmployees = employeeRepository.findByName("Payal");
-//		
-//		bynamEmployees.forEach(i->System.out.println(i));
+		List<Employee> bynamEmployees = employeeRepository.findByName("Payal");
+		
+		bynamEmployees.forEach(i->System.out.println(i));
 //		
 		
 //		List<Employee> bydep = employeeRepository.findByDep("IT");
