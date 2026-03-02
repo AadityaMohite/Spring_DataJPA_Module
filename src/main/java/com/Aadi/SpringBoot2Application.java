@@ -4,11 +4,15 @@ package com.Aadi;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import com.Aadi.BookRepository.BookRepository;
@@ -37,23 +41,23 @@ public class SpringBoot2Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Book book = new Book();
-		
-		book.setId(1);
-		book.setName("Java");
-		book.setPrice(500);
-		book.setQuantity(30);
-		
-		Book book2 =new Book();
-		book2.setId(2);
-		book2.setName("Python");
-		book2.setPrice(400);
-		book2.setQuantity(9);
-		Book book3 = new Book();
-		book3.setId(3);
-		book3.setName("C++");
-		book3.setPrice(300);
-		book3.setQuantity(9);
+//		Book book = new Book();
+//		
+//		book.setId(1);
+//		book.setName("Java");
+//		book.setPrice(500);
+//		book.setQuantity(30);
+//		
+//		Book book2 =new Book();
+//		book2.setId(2);
+//		book2.setName("Python");
+//		book2.setPrice(400);
+//		book2.setQuantity(9);
+//		Book book3 = new Book();
+//		book3.setId(3);
+//		book3.setName("C++");
+//		book3.setPrice(300);
+//		book3.setQuantity(9);
 		
 //		bookRepository.save(book);
 		
@@ -146,20 +150,78 @@ public class SpringBoot2Application implements CommandLineRunner {
 
 				);
 		
-		employeeRepository.saveAll(employees);
-		
+//		employeeRepository.saveAll(employees);
+//		
 //		Sort sort = Sort.by("name");
-//		employeeRepository.findAll(sort).forEach(x->System.out.println(x));;
-		
-		Sort sort = Sort.by("salary");
-	List<Employee> employees2 =	employeeRepository.findAll(sort);
-	 
-	   for (Employee employee : employees2) {
-		System.out.println(employee);
-	}
+//	employeeRepository.findAll(sort).forEach(x->System.out.println(x));;
+//		
+//		Sort sort2 = Sort.by("salary");
+//	List<Employee> employees2 =	employeeRepository.findAll(sort);
+//	 
+//	   for (Employee employee : employees2) {
+//	System.out.println(employee);
+//	}
+//		
+//		
+//	
+//		System.out.println("Run method is calling");
+//		
+//	
 	
-		System.out.println("Run method is calling");
+		//Pagination
+//	PageRequest request =	PageRequest.of(0, 10);
+//	
+//	
+//	Page<Employee> page = employeeRepository.findAll(request);
+//		
+//	List<Employee> employees2 = page.getContent();
+//	
+//	employees2.forEach(i->System.out.println(i));
+		
+		
+		// Filteration
+		
+//		Employee employee = new Employee();
+////		employee.setAddress("Pune");
+////		employee.setAddress("Banglore");
+////		employee.setAddress("Chennai");
+////		employee.setName("Raj");
+////		employee.setName("Payal");
+////         employee.setSalary(45000.00);
+//	Example<Employee> emExample =	Example.of(employee);
+//	
+//	List<Employee> employees2 = employeeRepository.findAll(emExample);
+//	
+//	employees2.forEach(i->System.out.println(i));
+//		
+//		List<Employee> bynamEmployees = employeeRepository.findByName("Payal");
+//		
+//		bynamEmployees.forEach(i->System.out.println(i));
+//		
+		
+//		List<Employee> bydep = employeeRepository.findByDep("IT");
+//		bydep.forEach(i->System.out.println(i));
+		
+		
+//		List<Employee> byaddressEmployees = employeeRepository.findByAddress("Pune");
+//		
+//		byaddressEmployees.forEach(i->System.out.println(i));
+		
+		
+//		List<Employee> bygenderEmployees = employeeRepository.findByGender("Male");
+//		bygenderEmployees.forEach(i->System.out.println(i));
+		
+//		List<Employee> bySalaryEmployees = employeeRepository.findBySalary(50000.0);
+//		bySalaryEmployees.forEach(i->System.out.println(i));
+		
+		
+//	List<Employee> bysalarygreater =	employeeRepository.findBySalaryGreaterThan(40000.00);
+//	bysalarygreater.forEach(i->System.out.println(i));
+		
+	List<Employee> bydepandgenderEmployees = 	employeeRepository.findByDepAndGender("IT", "Male");
+	bydepandgenderEmployees.forEach(i->System.out.println(i));
 		
 	}
+		
 
 }
